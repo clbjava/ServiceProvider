@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.service.provider.dao.FlowDefineInfoMapper">
+  <resultMap id="BaseResultMap" type="com.service.provider.dao.dto.FlowDefineInfo">
+    <id column="flow_id" jdbcType="CHAR" property="flowId" />
+    <result column="flow_name" jdbcType="CHAR" property="flowName" />
+    <result column="flow_init_params" jdbcType="CHAR" property="flowInitParams" />
+    <result column="flow_deal_class" jdbcType="CHAR" property="flowDealClass" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    flow_id, flow_name, flow_init_params, flow_deal_class
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from flow_define
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from flow_define
+    where flow_id = #{flowId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.service.provider.dao.dto.FlowDefineInfo">
+    insert into flow_define (flow_id, flow_name, flow_init_params, 
+      flow_deal_class)
+    values (#{flowId,jdbcType=CHAR}, #{flowName,jdbcType=CHAR}, #{flowInitParams,jdbcType=CHAR}, 
+      #{flowDealClass,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.service.provider.dao.dto.FlowDefineInfo">
+    insert into flow_define
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowId != null">
+        flow_id,
+      </if>
+      <if test="flowName != null">
+        flow_name,
+      </if>
+      <if test="flowInitParams != null">
+        flow_init_params,
+      </if>
+      <if test="flowDealClass != null">
+        flow_deal_class,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowId != null">
+        #{flowId,jdbcType=CHAR},
+      </if>
+      <if test="flowName != null">
+        #{flowName,jdbcType=CHAR},
+      </if>
+      <if test="flowInitParams != null">
+        #{flowInitParams,jdbcType=CHAR},
+      </if>
+      <if test="flowDealClass != null">
+        #{flowDealClass,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.service.provider.dao.dto.FlowDefineInfo">
+    update flow_define
+    <set>
+      <if test="flowName != null">
+        flow_name = #{flowName,jdbcType=CHAR},
+      </if>
+      <if test="flowInitParams != null">
+        flow_init_params = #{flowInitParams,jdbcType=CHAR},
+      </if>
+      <if test="flowDealClass != null">
+        flow_deal_class = #{flowDealClass,jdbcType=CHAR},
+      </if>
+    </set>
+    where flow_id = #{flowId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.service.provider.dao.dto.FlowDefineInfo">
+    update flow_define
+    set flow_name = #{flowName,jdbcType=CHAR},
+      flow_init_params = #{flowInitParams,jdbcType=CHAR},
+      flow_deal_class = #{flowDealClass,jdbcType=CHAR}
+    where flow_id = #{flowId,jdbcType=CHAR}
+  </update>
+</mapper>

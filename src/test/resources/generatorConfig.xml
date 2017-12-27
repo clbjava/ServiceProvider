@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry
+		location="D:\Program Works\Repository\Maven\mysql\mysql-connector-java\5.1.35\mysql-connector-java-5.1.35.jar" />
+	<context id="context">
+	    <!--是否生成注解 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/db"
+			driverClass="com.mysql.jdbc.Driver" password="1" userId="root" />
+		<javaModelGenerator targetPackage="com.service.provider.dao.dto"
+			targetProject="ServiceProvider/src/main/java" />
+		<sqlMapGenerator targetPackage="mapper" targetProject="ServiceProvider/src/main/resources" />
+		<javaClientGenerator targetPackage="com.service.provider.dao"
+			targetProject="ServiceProvider/src/main/java" type="XMLMAPPER" />
+
+		<table schema="db" tableName="flow_define" domainObjectName="FlowDefineInfo"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+	</context>
+</generatorConfiguration>
