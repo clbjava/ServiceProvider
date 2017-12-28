@@ -1,4 +1,4 @@
-package com.service.provider.comm.utils;
+package com.service.provider.comm.exception;
 
 import org.springframework.core.NestedRuntimeException;
 

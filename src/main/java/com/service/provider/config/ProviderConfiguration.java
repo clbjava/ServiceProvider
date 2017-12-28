@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.service.provider.comm.utils.SysException;
+import com.service.provider.comm.exception.SysException;
 
 /**
  * 通用配置
