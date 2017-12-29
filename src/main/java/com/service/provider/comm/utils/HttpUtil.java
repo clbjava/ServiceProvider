@@ -125,6 +125,7 @@ public class HttpUtil {
 	 * @param proxyPassword
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	public static CloseableHttpClient createHttpClientWithCert(KeyStore keyStore, String keyStorePassword,
 			KeyStore trustStoreFile, int connMaxTotal, int connDefaultMaxPerRoute, int validateInactivityMillSeconds,
 			int connEvictIdleConnectionsTimeoutMillSeconds, String proxyHost, int proxyPort, String proxyUsername,
