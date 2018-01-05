@@ -16,7 +16,7 @@ public class JsonMapper {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(JsonMapper.class);
 
-	private  ObjectMapper mapper;
+	private ObjectMapper mapper;
 
 	public JsonMapper(Include include) {
 		mapper = new ObjectMapper();
@@ -32,7 +32,7 @@ public class JsonMapper {
 		return new JsonMapper(Include.NON_DEFAULT);
 	}
 
-	public  String toJson(Object object) {
+	public String toJson(Object object) {
 		try {
 			return mapper.writeValueAsString(object);
 		} catch (IOException e) {
@@ -41,7 +41,7 @@ public class JsonMapper {
 		}
 	}
 
-	public  <T> T toObjct(String string, Class<T> type) {
+	public <T> T toObjct(String string, Class<T> type) {
 		try {
 			return mapper.readValue(string, type);
 		} catch (IOException e) {
