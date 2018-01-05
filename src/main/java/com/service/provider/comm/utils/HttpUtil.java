@@ -54,9 +54,10 @@ public class HttpUtil {
 
 		return null;
 	}
-    
+
 	/**
 	 * 无证书请求
+	 * 
 	 * @param proxyHost
 	 * @param proxyPort
 	 * @return
@@ -66,7 +67,7 @@ public class HttpUtil {
 	 */
 	public static CloseableHttpClient acceptsUntrustedCertsHttpClient(String proxyHost, int proxyPort)
 			throws KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
-		
+
 		HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
 
 		// setup a Trust Strategy that allows all certificates.
@@ -112,6 +113,7 @@ public class HttpUtil {
 
 	/**
 	 * 带证书请求
+	 * 
 	 * @param keyStore
 	 * @param keyStorePassword
 	 * @param trustStoreFile
