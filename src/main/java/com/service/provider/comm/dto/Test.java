@@ -30,7 +30,7 @@ public class Test {
 		Dto dto=new Dto(); 
 		dto.setId("123456789");
 		dto.setPrice1(new BigDecimal(1.1));
-		dto.setPrice(new BigDecimal(1.19999));
+		//dto.setPrice(new BigDecimal(1.19999));
 		dto.setDate(new Date());
 		JsonMapper map=JsonMapper.nonDefaultMapper();
 		System.out.println(map.toJson(dto));
@@ -41,7 +41,7 @@ public class Test {
 	
 		Dto dto1=map.toObjct(dateString, Dto.class);
 		System.out.println(map.toJson(dto1)+"=="+dto1.getPrice()+":"+dto1.getPrice1());
-	
+	    
 	}
 
 }

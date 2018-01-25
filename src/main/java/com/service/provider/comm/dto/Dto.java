@@ -3,8 +3,6 @@ package com.service.provider.comm.dto;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -15,10 +13,10 @@ public class Dto {
 	private String id;
 
 	private Date date;
-	
-	@JsonSerialize(using = NumberSerialize.class)
+
+	@JsonSerialize(nullsUsing = NumberSerialize.class)
 	private BigDecimal price;
-	
+
 	private BigDecimal price1;
 
 	@JsonProperty("id")
@@ -30,8 +28,8 @@ public class Dto {
 	public void setId(String id) {
 		this.id = id;
 	}
-    
-	//@JsonFormat(shape = JsonFormat.Shape.NUMBER)
+
+	// @JsonFormat(shape = JsonFormat.Shape.NUMBER)
 	@JsonProperty("date")
 	public Date getDate() {
 		return date;
@@ -42,10 +40,10 @@ public class Dto {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-    
+
 	public BigDecimal getPrice() {
 		return price;
-		//return price.setScale(2, BigDecimal.ROUND_UP);
+		// return price.setScale(2, BigDecimal.ROUND_UP);
 	}
 
 	public void setPrice(BigDecimal price) {

@@ -21,6 +21,9 @@ public class NumberSerialize extends JsonSerializer<BigDecimal>{
 	@Override
 	public void serialize(BigDecimal value, JsonGenerator gen, SerializerProvider serializers)
 			throws IOException, JsonProcessingException {
+		if(value==null) {
+			value=BigDecimal.ZERO;
+		}
 		gen.writeNumber(format.format(value.setScale(2, BigDecimal.ROUND_DOWN)));
 	}
 
