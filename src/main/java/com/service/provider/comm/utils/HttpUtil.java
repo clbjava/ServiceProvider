@@ -1,4 +1,4 @@
-package com.service.provider.comm.utils;
+/*package com.service.provider.comm.utils;
 
 import java.security.KeyManagementException;
 import java.security.KeyStore;
@@ -37,12 +37,12 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.ssl.SSLContexts;
 
-/**
+*//**
  * Http 请求工具类
  * 
  * @author CLb
  *
- */
+ *//*
 public class HttpUtil {
 
 	public String submitGet(String url) {
@@ -55,7 +55,7 @@ public class HttpUtil {
 		return null;
 	}
 
-	/**
+	*//**
 	 * 无证书请求
 	 * 
 	 * @param proxyHost
@@ -64,7 +64,7 @@ public class HttpUtil {
 	 * @throws KeyStoreException
 	 * @throws NoSuchAlgorithmException
 	 * @throws KeyManagementException
-	 */
+	 *//*
 	public static CloseableHttpClient acceptsUntrustedCertsHttpClient(String proxyHost, int proxyPort)
 			throws KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
 
@@ -79,17 +79,17 @@ public class HttpUtil {
 
 		httpClientBuilder.setSSLContext(sslContext);
 
-		/*
+		
 		 * don't check Hostnames, either. use
 		 * SSLConnectionSocketFactory.getDefaultHostnameVerifier(), if you don't want to
 		 * weaken
-		 */
+		 
 		HostnameVerifier hostnameVerifier = NoopHostnameVerifier.INSTANCE;
 
-		/*
+		
 		 * here's the special part: need to create an SSL Socket Factory, to use our
 		 * weakened "trust strategy"; and create a Registry, to register it.
-		 */
+		 
 		SSLConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(sslContext, hostnameVerifier);
 		Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
 				.register("http", PlainConnectionSocketFactory.getSocketFactory()).register("https", sslSocketFactory)
@@ -111,7 +111,7 @@ public class HttpUtil {
 		return client;
 	}
 
-	/**
+	*//**
 	 * 带证书请求
 	 * 
 	 * @param keyStore
@@ -126,7 +126,7 @@ public class HttpUtil {
 	 * @param proxyUsername
 	 * @param proxyPassword
 	 * @return
-	 */
+	 *//*
 	@SuppressWarnings("unused")
 	public static CloseableHttpClient createHttpClientWithCert(KeyStore keyStore, String keyStorePassword,
 			KeyStore trustStoreFile, int connMaxTotal, int connDefaultMaxPerRoute, int validateInactivityMillSeconds,
@@ -214,3 +214,4 @@ public class HttpUtil {
 		return httpclient;
 	}
 }
+*/

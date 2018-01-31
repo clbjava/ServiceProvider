@@ -5,12 +5,12 @@ import java.util.Date;
 
 import com.service.provider.comm.utils.JsonMapper;
 
-public class Test {
+public class Test {/*
 	
 	//private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);
 
 	public static void main(String[] args) {
-		/*// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		String string="{\"TEST_ID\":[{\"ID\":\"123456789\"}]}";
 		//有坑
 		JsonMapper map=JsonMapper.nonDefaultMapper();
@@ -26,7 +26,7 @@ public class Test {
 		TestJackSon2 test2=new TestJackSon2();
 		//bug 
 		org.springframework.beans.BeanUtils.copyProperties(test, test2);
-		System.out.println(":"+map.toJson(test2));*/
+		System.out.println(":"+map.toJson(test2));
 		Dto dto=new Dto(); 
 		dto.setId("123456789");
 		dto.setPrice1(new BigDecimal(1.1));
@@ -44,4 +44,4 @@ public class Test {
 	    
 	}
 
-}
+*/}
