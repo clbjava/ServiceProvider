@@ -20,7 +20,7 @@ import com.service.provider.controller.dto.Context;
 import com.service.provider.service.ServiceTemplate;
 
 @RestController
-@RequestMapping("servers")
+@RequestMapping("serviceProvider")
 public class BaseController extends AbstractController {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
