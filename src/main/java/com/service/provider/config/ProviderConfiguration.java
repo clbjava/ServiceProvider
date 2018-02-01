@@ -1,5 +1,7 @@
 package com.service.provider.config;
 
+import java.util.concurrent.ThreadPoolExecutor;
+
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,6 +17,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -146,6 +149,28 @@ public class ProviderConfiguration extends WebMvcConfigurerAdapter {
 		} catch (Exception e) {
 			throw new SysException("sqlSessionFactory construct fail", e);
 		}
+	}
+	
+	@Bean(name = "servicesExecutor")
+	public ThreadPoolTaskExecutor backendThreadPoolTaskExecutor(
+			@Value("${core-pool-size:48}") int corePoolSize,
+			@Value("${keep-alive-seconds:60}") int keepAliveSeconds,
+			@Value("${max-pool-size:48}") int maxPoolSize,
+			@Value("${queue-capacity:300}") int queueCapacity,
+			@Value("${allow-core-thread-timeout:true}") boolean allowCoreThreadTimeOut,
+			@Value("${await-termination-seconds:60}") int awaitTerminationSeconds,
+			@Value("${wait-for-task-to-complete-on-shutdown:true}") boolean waitForTasksToCompleteOnShutdown) {
+		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+		executor.setCorePoolSize(corePoolSize);
+		executor.setKeepAliveSeconds(keepAliveSeconds);
+		executor.setMaxPoolSize(maxPoolSize);
+		executor.setQueueCapacity(queueCapacity);
+		executor.setAllowCoreThreadTimeOut(allowCoreThreadTimeOut);
+		executor.setAwaitTerminationSeconds(awaitTerminationSeconds);
+		executor.setWaitForTasksToCompleteOnShutdown(waitForTasksToCompleteOnShutdown);
+		executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+		executor.setThreadNamePrefix("work-Executor-");
+		return executor;
 	}
 
 }
