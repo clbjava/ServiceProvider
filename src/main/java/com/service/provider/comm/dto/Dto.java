@@ -11,7 +11,8 @@ public class Dto {
 
 	// @JsonProperty("ID")
 	private String id;
-
+    
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMddHHmmss", timezone = "GMT+8")
 	private Date date;
 
 	@JsonSerialize(nullsUsing = NumberSerialize.class)
@@ -30,13 +31,13 @@ public class Dto {
 	}
 
 	// @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-	@JsonProperty("date")
+	//@JsonProperty("date")
 	public Date getDate() {
 		return date;
 	}
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	@JsonProperty("DATE")
+	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	//@JsonProperty("DATE")
 	public void setDate(Date date) {
 		this.date = date;
 	}

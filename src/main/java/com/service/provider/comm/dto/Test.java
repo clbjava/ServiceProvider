@@ -2,14 +2,16 @@ package com.service.provider.comm.dto;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.service.provider.comm.utils.JsonMapper;
 
-public class Test {/*
+public class Test {
 	
 	//private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {/*
 		// TODO Auto-generated method stub
 		String string="{\"TEST_ID\":[{\"ID\":\"123456789\"}]}";
 		//有坑
@@ -42,6 +44,21 @@ public class Test {/*
 		Dto dto1=map.toObjct(dateString, Dto.class);
 		System.out.println(map.toJson(dto1)+"=="+dto1.getPrice()+":"+dto1.getPrice1());
 	    
+	*/
+		
+		/*JsonMapper map=JsonMapper.nonDefaultMapper();
+		Map<String,Object> hashmap=new HashMap<String,Object>();
+		hashmap.put("a", "sdc");
+		hashmap.put("b", 23);
+		System.out.println(map.toJson(hashmap));*/
+		
+		Dto dto=new Dto(); 
+		dto.setId("123456789");
+		dto.setPrice1(new BigDecimal(1.1));
+		//dto.setPrice(new BigDecimal(1.19999));
+		dto.setDate(new Date());
+		JsonMapper map=JsonMapper.nonDefaultMapper();
+		System.out.println(map.toJson(dto));
 	}
 
-*/}
+}
