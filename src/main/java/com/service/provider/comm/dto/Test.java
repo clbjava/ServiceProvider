@@ -59,6 +59,8 @@ public class Test {
 		dto.setDate(new Date());
 		JsonMapper map=JsonMapper.nonDefaultMapper();
 		System.out.println(map.toJson(dto));
+		
+		
 	}
 
 }
