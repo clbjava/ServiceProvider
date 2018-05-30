@@ -7,20 +7,15 @@ import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.alibaba.druid.pool.DruidDataSource;
@@ -32,12 +27,13 @@ import com.service.provider.comm.exception.SysException;
  * @author CLb
  * @version 1.0.0
  */
-@Configuration
+/*@Configuration
 @ComponentScan
 @EnableTransactionManagement
 @EnableScheduling
 @EnableAsync
-@EnableCaching
+@EnableCaching*/
+@SpringBootApplication
 public class ProviderConfiguration extends WebMvcConfigurerAdapter {
 
     @Value("${threadpool.task.max-pool-size:8}")

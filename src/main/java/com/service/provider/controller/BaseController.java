@@ -36,7 +36,7 @@ public class BaseController extends AbstractController {
 			@PathVariable("uri") String uri,
 			@RequestParam(value = "busType", required = true) String busType,
 			@RequestParam(value = "busVersion", required = true) String busVersion,
-			@RequestParam(value = "requestBody", required = false) String jsonString) {
+			@RequestParam(value = "requestBody", required = false) String jsonString) throws Exception {
 		LOGGER.info("BaseController.get:busType={},busVersion={},requestBody={}", busType, busVersion, jsonString);
 		Context context = new Context();
 		context.put("hello", "jsonString");
